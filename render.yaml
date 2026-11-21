@@ -1,0 +1,15 @@
+# Render blueprint (optional): push this server/ folder as the root of a
+# GitHub repo, then in Render choose New -> Blueprint, or create a free
+# Web Service by hand with the same build/start commands.
+services:
+  - type: web
+    name: cgpa-mcp
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PYTHON_VERSION
+        value: 3.12.7
